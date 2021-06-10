@@ -7,6 +7,7 @@ const app = express();
 const authRoutes = require("./routes/auth");
 const adminRoutes = require("./routes/admin/auth");
 const categoryRoutes = require("./routes/category");
+const productRoutes = require('./routes/product')
 
 dotenv.config({ path: "./src/config.env" });
 const PORT = process.env.PORT;
@@ -28,6 +29,8 @@ app.use(express.json());
 app.use("/api", authRoutes);
 app.use("/api", adminRoutes);
 app.use("/api", categoryRoutes);
+app.use("/api", productRoutes);
+
 
 app.listen(PORT, () => {
   console.log(`server is running at port no ${PORT}`);
